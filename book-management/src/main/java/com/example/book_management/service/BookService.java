@@ -62,5 +62,11 @@ public class BookService {
         // Nếu thấy -> set lại thông tin -> save()
         book.setStock(dto.getStock());
         bookRepository.save(book);
+
+        // 3. Tìm kiếm chi tiết sách theo ID (Bài 3)
+        public Book getBookById(Long id) {
+            return bookRepository.findById(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("Book with id " + id + " not found"));
+        }
     }
 }

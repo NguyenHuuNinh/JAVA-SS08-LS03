@@ -32,5 +32,12 @@ public class BookController {
 
         bookService.updateBook(id, dto);
         return ResponseEntity.ok("Book stock updated successfully");
+
+        // API 3: Lấy thông tin sách theo ID (Bài 3)
+        @GetMapping("/{id}")
+        public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+            Book book = bookService.getBookById(id);
+            return ResponseEntity.ok(book);
+        }
     }
 }
